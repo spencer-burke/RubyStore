@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get "subscribers/create"
   resource :session
   resources :passwords, param: :token
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "products#index"
-  resources :products
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
 end
