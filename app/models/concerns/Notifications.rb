@@ -1,4 +1,4 @@
-module Concerns::Notifications
+module Notifications
   extend ActiveSupport::Concern
 
   included do
