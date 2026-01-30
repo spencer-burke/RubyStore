@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get "sign_ups/show"
-  get "unsubscribes/only"
-  get "unsubscribes/show"
-  get "subscribers/create"
   resource :session
   resources :passwords, param: :token
   resource :sign_up
@@ -18,5 +14,9 @@ Rails.application.routes.draw do
 
   namespace :settings do
     resource :password, only: [ :show, :update ]
+    resource :profile, only: [ :show, :update ]
+    resource :user, only: [ :show, :destroy ]
+
+    root to: redirect("/settings/profile")
   end
 end
