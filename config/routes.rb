@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   namespace :email do
     resources :confirmations, param: :token, only: [ :show ]
   end
+
+  # Admin only
+  namespace :store do
+    resources :users
+  end
 end
