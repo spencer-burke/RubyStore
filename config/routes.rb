@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
   # Admin only
   namespace :store do
+    resources :products
     resources :users
+
+    root to: redirect("/store/products")
   end
 end
